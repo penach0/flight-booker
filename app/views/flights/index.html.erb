@@ -13,7 +13,7 @@
 
     <div>
         <%= f.label :passengers %>
-        <%= f.select(:passengers, [*1..4])%>
+        <%= f.select(:num_passengers, [*1..4])%>
     </div>
 
       
@@ -29,13 +29,13 @@
 <h2>Available Flights</h2>
 
 <% if @available_flights.any? %>
-    <ul>
-        <% @available_flights.each do |flight| %>
-            <li>
-                <%= flight.id %> at <%= flight.departure_time %>
-            </li>
-        <% end %>
-    </ul>
+
+    <%= form_with url: '#', method: :get do |f| %>
+        <%= f.hidden_field :num_passengers %>
+        <%= f.collection_radio_buttons :flight_id, @available_flights, :id, :departure_time %>
+        <%= f.submit "Book a passage"%>
+    <% end %>
+
 <% else %>
     <p>There are no available flights </p>
 <% end %>
