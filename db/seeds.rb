@@ -13,12 +13,12 @@ AIRPORT_CODES = ["LAX", "JFK", "CDG", "DXB", "SIN", "HKG", "LHR", "PVG", "ICN", 
 
 AIRPORT_CODES.each { |code| Airport.create({ codename: code }) }
 
-10.times do |_i|
+1000.times do |_i|
   departure_airport_id = Airport.ids.sample
   arrival_airport_id = (Airport.ids - [departure_airport_id]).sample
 
   Flight.create!(departure_airport_id:,
                  arrival_airport_id:,
-                 start: rand(Time.current..1.year.from_now),
+                 date: rand(Time.current..1.month.from_now),
                  duration: 1.hour)
 end
