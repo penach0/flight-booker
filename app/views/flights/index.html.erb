@@ -30,9 +30,9 @@
 
 <% if @available_flights.any? %>
     <ul>
-        <%= @available_flights.each do |flight| %>
+        <% @available_flights.each do |flight| %>
             <li>
-                <%= flight.id %>
+                <%= flight.id %> at <%= flight.departure_time %>
             </li>
         <% end %>
     </ul>
