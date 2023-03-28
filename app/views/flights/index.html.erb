@@ -3,12 +3,12 @@
 <%= form_with url: flights_path, method: :get do |f| %>
     <div>
         <%= f.label :departure_airport %>
-        <%= f.select(:departure_airport, @airport_options)%>
+        <%= f.select(:departure_airport_id, @airport_options)%>
     </div>
 
     <div>
         <%= f.label :arrival_airport %>
-        <%= f.select(:arrival_airport, @airport_options)%>
+        <%= f.select(:arrival_airport_id, @airport_options)%>
     </div>
 
     <div>
@@ -24,4 +24,18 @@
 
 
     <%= f.submit "Search" %>
+<% end %>
+
+<h2>Available Flights</h2>
+
+<% if @available_flights.any? %>
+    <ul>
+        <%= @available_flights.each do |flight| %>
+            <li>
+                <%= flight.id %>
+            </li>
+        <% end %>
+    </ul>
+<% else %>
+    <p>There are no available flights </p>
 <% end %>
