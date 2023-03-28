@@ -1,1 +1,5 @@
 <h1>Flights Booker</h1>
+
+<%= form_with url: flights_path, method: :get do |f| %>
+    <%= f.submit "Search" %>
+<% end %>
