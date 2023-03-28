@@ -11,5 +11,17 @@
         <%= f.select(:arrival_airport, @airport_options)%>
     </div>
 
+    <div>
+        <%= f.label :passengers %>
+        <%= f.select(:passengers, [*1..4])%>
+    </div>
+
+      
+    <div>
+        <%= f.label :date %>
+        <%= select_tag(:date, options_for_select(@date_options)) %>
+    </div>
+
+
     <%= f.submit "Search" %>
 <% end %>
