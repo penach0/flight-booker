@@ -30,7 +30,7 @@
 
 <% if @available_flights.any? %>
 
-    <%= form_with url: '#', method: :get do |f| %>
+    <%= form_with url: new_booking_path, method: :get do |f| %>
         <%= f.hidden_field :num_passengers %>
         <%= f.collection_radio_buttons :flight_id, @available_flights, :id, :departure_time %>
         <%= f.submit "Book a passage"%>
