@@ -13,7 +13,7 @@ AIRPORT_CODES = ["LAX", "JFK", "CDG", "DXB", "SIN", "HKG", "LHR", "PVG", "ICN", 
 
 AIRPORT_CODES.each { |code| Airport.create({ codename: code }) }
 
-1000.times do |_i|
+10_000.times do |_i|
   departure_airport_id = Airport.ids.sample
   arrival_airport_id = (Airport.ids - [departure_airport_id]).sample
 

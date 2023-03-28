@@ -5,6 +5,7 @@ class FlightsController < ApplicationController
                           .order(:date)
                           .map { |f| [f.formatted_date, f.date] }
                           .uniq(&:first)
+    @available_flights = []
 
     if params[:commit].present?
       @available_flights = Flight.search(departure: params[:departure_airport_id],
