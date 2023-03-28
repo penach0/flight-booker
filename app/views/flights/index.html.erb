@@ -1,5 +1,15 @@
 <h1>Flights Booker</h1>
 
 <%= form_with url: flights_path, method: :get do |f| %>
+    <div>
+        <%= f.label :departure_airport %>
+        <%= f.select(:departure_airport, @airport_options)%>
+    </div>
+
+    <div>
+        <%= f.label :arrival_airport %>
+        <%= f.select(:arrival_airport, @airport_options)%>
+    </div>
+
     <%= f.submit "Search" %>
 <% end %>
