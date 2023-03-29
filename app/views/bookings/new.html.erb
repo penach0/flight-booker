@@ -1,20 +1,20 @@
 <h1>New Booking</h1>
 
-<%= form_with url: '#', method: :get do |f| %>
+<%= form_with model: @booking do |f| %>
     <div>
         <%= f.label :flight_id %>
         <%= f.number_field :flight_id, value: @flight.id ,readonly: true %>
         <%= f.label :departure_airport %>
-        <%= f.text_field :departure_airport, value: @flight.departure_airport.codename ,readonly: true %>
+        <%= f.text_field :departure_airport, value: @flight.departure_airport.codename ,disabled: true %>
         <%= f.label :arrival_airport %>
-        <%= f.text_field :arrival_airport, value: @flight.arrival_airport.codename ,readonly: true %>
+        <%= f.text_field :arrival_airport, value: @flight.arrival_airport.codename ,disabled: true %>
     </div>
 
     <div>
         <%= f.label :date %>
-        <%= f.date_field :date, value: @flight.date.to_date, readonly: true %>
+        <%= f.date_field :date, value: @flight.date.to_date, disabled: true %>
         <%= f.label :departure_time %>
-        <%= f.time_field :time, value: @flight.departure_time, readonly: true  %>
+        <%= f.time_field :time, value: @flight.departure_time, disabled: true  %>
     </div>
 
     <% @num_passengers.times do |num| %>
