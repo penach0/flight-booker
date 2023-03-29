@@ -16,4 +16,9 @@ class Flight < ApplicationRecord
   def departure_time
     date.strftime("%H:%M")
   end
+
+  def arrival_time
+    arrival_date = date + duration
+    arrival_date.strftime("%H:%M")
+  end
 end
