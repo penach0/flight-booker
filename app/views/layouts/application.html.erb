@@ -11,11 +11,16 @@
   </head>
 
   <body>
+    <nav>
+      <h1><%= link_to "Flight Booker", root_path %></h1>
+    </nav>
+
     <% if flash.any? %>
       <% flash.each do |_type, message| %>
         <p><%= message %></p>
       <% end %>
     <% end %>
+
     <%= yield %>
   </body>
 </html>
