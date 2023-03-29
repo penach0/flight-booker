@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
       redirect_to @booking
       flash[:success] = "Your booking has been registered, have a nice trip!"
     else
-      render :new, status: :unprocessable_unit
+      render :new, status: :unprocessable_entity
     end
   end
 
