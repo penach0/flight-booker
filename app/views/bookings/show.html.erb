@@ -12,8 +12,8 @@
 
 <h2>Passenger Information</h2>
 
-<% @booking.passengers.each do |passenger| %>
-    <h3>Passenger <%= passenger.id %></h3>
+<% @booking.passengers.each_with_index do |passenger, index| %>
+    <h3>Passenger <%= index + 1 %></h3>
     <ul>
         <li><strong>Name: </strong><%= passenger.name %></li>
         <li><strong>Email: </strong><%= passenger.email %></li>
